@@ -55,34 +55,7 @@ class Header extends React.Component {
           onPress={this.props.showProfile}
           activeOpacity={1.5}
         />
-        <View
-          style={{
-            width: 30,
-            height: 30,
-            borderRadius: 60,
-            backgroundColor: "#E1E8ED",
-            alignItems: "center"
-          }}
-        >
-          <View
-            style={{
-              width: 10,
-              height: 10,
-              borderRadius: 20,
-              marginTop: 3,
-              backgroundColor: "#657786"
-            }}
-          />
-          <View
-            style={{
-              width: 17,
-              height: 10,
-              borderRadius: 10,
-              marginTop: 1,
-              backgroundColor: "#657786"
-            }}
-          />
-        </View>
+        <Avatar />
 
         <Text
           style={{
@@ -142,6 +115,44 @@ class Feed extends React.Component {
   }
 }
 
+const Avatar = function(props) {
+  let avatarSize;
+  if (!props.avatarSize) avatarSize = 30;
+  else avatarSize = props.avatarSize;
+  let headSize = avatarSize;
+  return (
+    <View
+      style={{
+        width: avatarSize,
+        height: avatarSize,
+        borderRadius: avatarSize * 2,
+        backgroundColor: "#E1E8ED",
+        alignItems: "center",
+        marginVertical: 10
+      }}
+    >
+      <View
+        style={{
+          width: avatarSize / 3,
+          height: avatarSize / 3,
+          borderRadius: headSize * 2,
+          marginTop: avatarSize / 10,
+          backgroundColor: "#657786"
+        }}
+      />
+      <View
+        style={{
+          width: avatarSize / 1.7,
+          height: avatarSize / 2.5,
+          borderRadius: 16.5,
+          marginTop: avatarSize / 15,
+          backgroundColor: "#657786"
+        }}
+      />
+    </View>
+  );
+};
+
 class Profile extends React.Component {
   render() {
     return (
@@ -163,35 +174,7 @@ class Profile extends React.Component {
           <View
             style={{ alignItems: "flex-start", justifyContent: "flex-start" }}
           >
-            <View
-              style={{
-                width: 50,
-                height: 50,
-                borderRadius: 100,
-                backgroundColor: "#E1E8ED",
-                alignItems: "center",
-                marginBottom: 15
-              }}
-            >
-              <View
-                style={{
-                  width: 16.5,
-                  height: 16.5,
-                  borderRadius: 33,
-                  marginTop: 5,
-                  backgroundColor: "#657786"
-                }}
-              />
-              <View
-                style={{
-                  width: 28.3,
-                  height: 20,
-                  borderRadius: 16.5,
-                  marginTop: 2,
-                  backgroundColor: "#657786"
-                }}
-              />
-            </View>
+            <Avatar avatarSize={50} />
             <Text style={{ fontSize: 20, fontWeight: "600", color: "#14171A" }}>
               {"dev-andremonteiro"}
             </Text>
