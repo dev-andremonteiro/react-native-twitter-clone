@@ -6,12 +6,52 @@ import {
   Text,
   StyleSheet,
   Dimensions,
-  TouchableOpacity
+  TouchableOpacity,
+  TouchableHighlight
 } from "react-native";
+import { MaterialIcons, Ionicons, FontAwesome } from "@expo/vector-icons";
 
 const width = Dimensions.get("window").width;
 const profileWidth = width - width * 0.15;
 const height = Dimensions.get("window").height;
+
+const Avatar = function(props) {
+  let avatarSize;
+  if (!props.avatarSize) avatarSize = 30;
+  else avatarSize = props.avatarSize;
+  let headSize = avatarSize;
+  return (
+    <View
+      style={{
+        width: avatarSize,
+        height: avatarSize,
+        borderRadius: avatarSize * 2,
+        backgroundColor: "#E1E8ED",
+        alignItems: "center",
+        marginVertical: 10
+      }}
+    >
+      <View
+        style={{
+          width: avatarSize / 3,
+          height: avatarSize / 3,
+          borderRadius: headSize * 2,
+          marginTop: avatarSize / 10,
+          backgroundColor: "#657786"
+        }}
+      />
+      <View
+        style={{
+          width: avatarSize / 1.7,
+          height: avatarSize / 2.5,
+          borderRadius: 16.5,
+          marginTop: avatarSize / 15,
+          backgroundColor: "#657786"
+        }}
+      />
+    </View>
+  );
+};
 
 class Header extends React.Component {
   constructor(props) {
@@ -115,45 +155,103 @@ class Feed extends React.Component {
   }
 }
 
-const Avatar = function(props) {
-  let avatarSize;
-  if (!props.avatarSize) avatarSize = 30;
-  else avatarSize = props.avatarSize;
-  let headSize = avatarSize;
+const ProfileItem = function(props) {
+  if (!props.data)
+    return (
+      <View
+        style={[
+          {
+            marginVertical: 10
+          },
+          styles.borderBottom
+        ]}
+      />
+    );
+
   return (
-    <View
-      style={{
-        width: avatarSize,
-        height: avatarSize,
-        borderRadius: avatarSize * 2,
-        backgroundColor: "#E1E8ED",
-        alignItems: "center",
-        marginVertical: 10
-      }}
+    <TouchableHighlight
+      style={[styles.profileContainer]}
+      activeOpacity={0.85}
+      underlayColor={"#E1E8ED"}
+      onPress={() => {}}
     >
       <View
-        style={{
-          width: avatarSize / 3,
-          height: avatarSize / 3,
-          borderRadius: headSize * 2,
-          marginTop: avatarSize / 10,
-          backgroundColor: "#657786"
-        }}
-      />
-      <View
-        style={{
-          width: avatarSize / 1.7,
-          height: avatarSize / 2.5,
-          borderRadius: 16.5,
-          marginTop: avatarSize / 15,
-          backgroundColor: "#657786"
-        }}
-      />
-    </View>
+        style={[
+          {
+            flexDirection: "row",
+            alignItems: "center"
+          }
+        ]}
+      >
+        {props.data.icon && (
+          <View style={{ width: 22, height: 22, marginRight: 20 }}>
+            {props.data.icon}
+          </View>
+        )}
+        <Text
+          style={{
+            fontSize: 18,
+            fontWeight: "400",
+            fontFamily: "Helvetica Neue"
+          }}
+        >
+          {props.data.text}
+        </Text>
+      </View>
+    </TouchableHighlight>
   );
 };
 
 class Profile extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showBorderTop: false,
+      showBoderBottom: false,
+      list: [
+        {
+          icon: <FontAwesome name={"user-o"} color={"#657786"} size={22} />,
+          text: "Profile"
+        },
+        {
+          icon: <Ionicons name={"ios-list-box"} color={"#657786"} size={22} />,
+          text: "Popular"
+        },
+        {
+          icon: (
+            <MaterialIcons
+              name={"bookmark-border"}
+              color={"#657786"}
+              size={22}
+            />
+          ),
+          text: "Saved"
+        },
+        {
+          icon: <Ionicons name={"ios-search"} color={"#657786"} size={22} />,
+          text: "Discover"
+        },
+        null,
+        {
+          text: "Configuration"
+        },
+        {
+          text: "Help Center"
+        }
+      ]
+    };
+  }
+
+  _showBorders = event => {
+    let y = event.nativeEvent.contentOffset.y;
+    if (y < 8 && y > -8)
+      this.setState({ showBorderTop: false, showBoderBottom: false });
+    if (this.state.showBorderTop || this.state.showBoderBottom) return;
+
+    if (y > 10) this.setState({ showBorderTop: true });
+    if (y < -10) this.setState({ showBoderBottom: true });
+  };
+
   render() {
     return (
       <View
@@ -167,7 +265,6 @@ class Profile extends React.Component {
         <View
           style={[
             styles.profileContainer,
-            styles.borderBottom,
             { flexDirection: "row", justifyContent: "space-between" }
           ]}
         >
@@ -175,22 +272,52 @@ class Profile extends React.Component {
             style={{ alignItems: "flex-start", justifyContent: "flex-start" }}
           >
             <Avatar avatarSize={50} />
-            <Text style={{ fontSize: 20, fontWeight: "600", color: "#14171A" }}>
-              {"dev-andremonteiro"}
+            <Text style={{ fontSize: 20, fontWeight: "800", color: "#14171A" }}>
+              {"Surname Name"}
             </Text>
             <Text style={{ fontSize: 16, color: "#657786", marginVertical: 5 }}>
-              {"@DAndremonteiro"}
+              {"@username"}
             </Text>
-            <Text
-              style={{ fontSize: 16, marginVertical: 10, color: "#657786" }}
-            >
-              {"Extra text"}
-            </Text>
+            <View style={{ marginVertical: 10 }}>
+              <Text style={{ fontSize: 16, color: "#657786" }}>
+                {"Extra custom text"}
+              </Text>
+            </View>
           </View>
         </View>
-        <View style={[{ flex: 1 }, styles.profileContainer]}>
-          <Text>{"Profile"}</Text>
-        </View>
+
+        <View
+          style={{
+            width: profileWidth,
+            height: StyleSheet.hairlineWidth,
+            backgroundColor: `rgba(170,184,194,${
+              this.state.showBorderTop ? "1" : "0"
+            })`
+          }}
+        />
+
+        <ScrollView
+          style={{
+            flex: 1
+          }}
+          onScroll={this._showBorders}
+          scrollEventThrottle={16}
+        >
+          {this.state.list.map((item, index) => (
+            <ProfileItem data={item} key={index.toString()} />
+          ))}
+        </ScrollView>
+
+        <View
+          style={{
+            width: profileWidth,
+            height: StyleSheet.hairlineWidth,
+            backgroundColor: `rgba(170,184,194,${
+              this.state.showBoderBottom ? "1" : "0"
+            })`
+          }}
+        />
+
         <View style={[styles.profileContainer]}>
           <View style={{ height: 25, width: 25 }} />
         </View>
@@ -243,7 +370,7 @@ export default class App extends React.Component {
           showsHorizontalScrollIndicator={false}
           scrollEventThrottle={16}
           onScroll={this._handleScroll}
-          contentOffset={{ x: profileWidth, y: 0 }}
+          //contentOffset={{ x: profileWidth, y: 0 }}
           ref={ref => (this.scroll = ref)}
         >
           <Profile />
@@ -299,7 +426,29 @@ const styles = StyleSheet.create({
     paddingVertical: 15
   },
   borderBottom: {
-    borderBottomColor: "#ccc",
+    borderBottomColor: "#657786",
     borderBottomWidth: StyleSheet.hairlineWidth
   }
 });
+
+/**
+ * <View style={{ flexDirection: "row" }}>
+                <Text style={{ fontSize: 16, fontWeight: "500" }}>{"10 "}</Text>
+                <Text
+                  style={{
+                    fontSize: 16,
+                    color: "#657786",
+                    fontWeight: "500",
+                    marginRight: 5
+                  }}
+                >
+                  {"Following"}
+                </Text>
+                <Text style={{ fontSize: 16, fontWeight: "500" }}>{"20 "}</Text>
+                <Text
+                  style={{ fontSize: 16, color: "#657786", marginRight: 5 }}
+                >
+                  {"Followers"}
+                </Text>
+              </View>
+ */
