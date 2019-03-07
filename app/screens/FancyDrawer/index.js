@@ -267,16 +267,16 @@ class Profile extends React.Component {
             <Text
               style={{ fontSize: 20, fontWeight: "800", color: colors.black }}
             >
-              {"Surname Name"}
+              {this.props.profileName}
             </Text>
             <Text
               style={{ fontSize: 16, color: colors.primary, marginVertical: 5 }}
             >
-              {"@username"}
+              {this.props.profileUserName}
             </Text>
             <View style={{ marginVertical: 10 }}>
               <Text style={{ fontSize: 16, color: colors.primary }}>
-                {"Extra custom text"}
+                {this.props.profileExtra}
               </Text>
             </View>
           </View>
@@ -380,7 +380,12 @@ export default class FancyDrawer extends React.Component {
           contentOffset={{ x: profileWidth, y: 0 }}
           ref={ref => (this.scroll = ref)}
         >
-          <Profile changeScreen={this.props.navigation} />
+          <Profile
+            changeScreen={this.props.navigation}
+            profileName={this.props.profileName}
+            profileUserName={this.props.profileUserName}
+            profileExtra={this.props.profileExtra}
+          />
           <View
             style={[
               styles.container,

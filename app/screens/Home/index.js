@@ -40,7 +40,13 @@ class Home extends React.Component {
 
   render() {
     return (
-      <FancyDrawer navigation={this._changeScreen} title={"Home"}>
+      <FancyDrawer
+        navigation={this._changeScreen}
+        title={"Home"}
+        profileName={"Surname Name"}
+        profileUserName={"@username"}
+        profileExtra={"Extra Text"}
+      >
         <Feed />
       </FancyDrawer>
     );

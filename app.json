@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "O Placar Vai Ser",
-    "slug": "placarVaiSer",
+    "name": "Fancy Drawer",
+    "slug": "fancy-drawer",
     "privacy": "public",
     "sdkVersion": "32.0.0",
     "platforms": [
@@ -24,6 +24,8 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": "A simple drawer inspired on twitter app ",
+    "githubUrl": "https://github.com/dev-andremonteiro/react-native-fancy-drawer"
   }
 }
