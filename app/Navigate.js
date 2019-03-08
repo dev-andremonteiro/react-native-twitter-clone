@@ -9,6 +9,10 @@ import {
 } from "react-navigation";
 
 import Home from "./screens/Home";
+import Search from "./screens/Search";
+import Notification from "./screens/Notification";
+import Message from "./screens/Message";
+
 import Profile from "./screens/Profile";
 import Popular from "./screens/Popular";
 import Saved from "./screens/Saved";
@@ -19,7 +23,15 @@ import Help from "./screens/Help";
 export default createAppContainer(
   createSwitchNavigator(
     {
-      Home: Home,
+      Normal: createSwitchNavigator(
+        {
+          Home: Home,
+          Search: Search,
+          Notification: Notification,
+          Message: Message
+        },
+        { initialRouteName: "Home" }
+      ),
       Drawer: createStackNavigator({
         Profile: Profile,
         Popular: Popular,
@@ -30,7 +42,7 @@ export default createAppContainer(
       })
     },
     {
-      initialRouteName: "Home",
+      initialRouteName: "Normal",
       headerMode: "none",
       cardStyle: { paddingTop: StatusBar.currentHeight }
     }

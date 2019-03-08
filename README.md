@@ -107,6 +107,8 @@ In case of _null_ it's rendered a COOL options separator.
 - [ ] separete components used on FancyDrawer on different files
 - [ ] limit scroll on extremes of horizontal scrollview
 - [ ] add custom avatar
+- [ ] Haptic FeedBack on Profile Button
+- [ ] touchable not activating fast on Profile page
 - [ ] fix stacking screens while navigating (swipe back bug)
 - [ ] improve react-navigation goBack function
 - [ ] improve integration of FancyDrawer as a single component
