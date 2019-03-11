@@ -67,7 +67,13 @@ export default class RootComponent extends React.Component {
       require("../assets/topMore.png"),
       require("../assets/thunder.png"),
       require("../assets/topStar.png"),
-      require("../assets/topGear.png")
+      require("../assets/topGear.png"),
+      require("../assets/avatar/user1.jpg"),
+      require("../assets/avatar/user2.jpg"),
+      require("../assets/avatar/user3.jpg"),
+      require("../assets/avatar/user4.jpg"),
+      require("../assets/avatar/user5.jpg"),
+      require("../assets/avatar/user6.jpg")
     ]);
     await Promise.all([...imageAssets]).then(this.load._startAnimation);
   }

@@ -1,10 +1,27 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Image } from "react-native";
 import { colors } from "../../utils";
 
 const Avatar = function(props) {
+  if (props.photo) {
+    let size = 30;
+    if (props.size) size = props.size;
+
+    return (
+      <Image
+        style={{
+          height: size,
+          width: size,
+          borderRadius: size / 2
+        }}
+        resizeMode={"contain"}
+        source={props.photo}
+      />
+    );
+  }
+
   let avatarSize = 30;
-  if (props.avatarSize) avatarSize = props.avatarSize;
+  if (props.size) avatarSize = props.size;
 
   let headSize = avatarSize;
   return (
@@ -14,8 +31,7 @@ const Avatar = function(props) {
         height: avatarSize,
         borderRadius: avatarSize * 2,
         backgroundColor: colors.exlight_gray,
-        alignItems: "center",
-        marginVertical: 10
+        alignItems: "center"
       }}
     >
       <View

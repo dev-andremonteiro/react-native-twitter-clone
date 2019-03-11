@@ -70,7 +70,7 @@ class Drawer extends React.Component {
           <View
             style={{ alignItems: "flex-start", justifyContent: "flex-start" }}
           >
-            <Avatar avatarSize={50} />
+            <Avatar size={50} />
             <Text
               style={{
                 fontSize: 20,

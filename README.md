@@ -38,19 +38,13 @@ Packages used:
 
 ## Help me Improve :)
 
-<<<<<<< HEAD
-- [ ] separete components used on FancyDrawer on different files
+- [x] separete components used on FancyDrawer
 - [ ] limit scroll on extremes of horizontal scrollview
-- [ ] add custom avatar
+- [x] add custom avatar
 - [ ] Haptic FeedBack on Profile Button
 - [ ] touchable not activating fast on Profile page
 - [ ] fix stacking screens while navigating (swipe back bug)
-- [ ] improve react-navigation goBack function
-- [ ] improve integration of FancyDrawer as a single component
 - [ ] integrate FancyDrawer to react-navigation CustomNavigators
-=======
-
->>>>>>> 62ee84d22bc71c41bb2509937d110273804da948
 
 ## Author
 

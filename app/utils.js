@@ -75,3 +75,61 @@ export const rgbaColors = {
   exexlight_gray: hexToRGBArray(colors.exexlight_gray),
   white: hexToRGBArray(colors.white)
 };
+
+import Hyperlink from "react-native-hyperlink";
+const customLinkify = require("linkify-it")()
+  .add("@", {
+    validate: function(text, pos, self) {
+      var tail = text.slice(pos);
+
+      if (!self.re.twitter) {
+        self.re.twitter = new RegExp(
+          "^([a-zA-Z0-9_]){1,15}(?!_)(?=$|" + self.re.src_ZPCc + ")"
+        );
+      }
+      if (self.re.twitter.test(tail)) {
+        // Linkifier allows punctuation chars before prefix,
+        // but we additionally disable `@` ("@@mention" is invalid)
+        if (pos >= 2 && tail[pos - 2] === "@") {
+          return false;
+        }
+        return tail.match(self.re.twitter)[0].length;
+      }
+      return 0;
+    },
+    normalize: function(match) {
+      match.url = "https://twitter.com/" + match.url.replace(/^@/, "");
+    }
+  })
+  .add("#", {
+    validate: function(text, pos, self) {
+      var tail = text.slice(pos);
+
+      if (!self.re.twitter) {
+        self.re.twitter = new RegExp(
+          "^([a-zA-Z0-9_]){1,30}(?!_)(?=$|" + self.re.src_ZPCc + ")"
+        );
+      }
+      if (self.re.twitter.test(tail)) {
+        // Linkifier allows punctuation chars before prefix,
+        // but we additionally disable `@` ("@@mention" is invalid)
+        if (pos >= 2 && tail[pos - 2] === "#") {
+          return false;
+        }
+        return tail.match(self.re.twitter)[0].length;
+      }
+      return 0;
+    },
+    normalize: () => {}
+  });
+
+export function generateTwitterText(text) {
+  return (
+    <Hyperlink
+      linkify={customLinkify}
+      linkStyle={{ color: colors.primary, fontWeight: "400" }}
+    >
+      {text}
+    </Hyperlink>
+  );
+}
