@@ -1,7 +1,7 @@
 import React from "react";
 import {
   ScrollView,
-  View,
+  TouchableHighlight,
   Text,
   StyleSheet,
   TouchableOpacity,
@@ -11,13 +11,13 @@ import {
 import { width, colors } from "../../utils";
 import { twitterMessages } from "../../mock";
 
-import DrawerWraper from "../../components/DrawerWraper";
+import NavigationWraper from "../../components/NavigationWraper";
 import Tweet from "./Tweet";
 
 class Home extends React.Component {
   render() {
     return (
-      <DrawerWraper
+      <NavigationWraper
         navigation={this.props.navigation}
         selected={0}
         rightIcon={
@@ -43,10 +43,12 @@ class Home extends React.Component {
       >
         <ScrollView style={styles.container}>
           {twitterMessages.map((i, n) => (
-            <Tweet key={n.toString()} data={i} />
+            <TouchableHighlight key={n.toString()} activeOpacity={0.4}>
+              <Tweet data={i} />
+            </TouchableHighlight>
           ))}
         </ScrollView>
-      </DrawerWraper>
+      </NavigationWraper>
     );
   }
 }

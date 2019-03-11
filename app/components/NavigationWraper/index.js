@@ -4,8 +4,9 @@ import { View, Text } from "react-native";
 import FancyDrawer from "../FancyDrawer";
 import Header from "../Header";
 import FancyBottomTab from "../FancyBottomTab";
+import TweetBuble from "../TweetBuble";
 
-class DrawerWraper extends React.Component {
+class NavigationWraper extends React.Component {
   _handleShowDrawer = () => this.drawer._showProfile(0);
   _handleHeaderFade = i => this.header._fadeAvatar(i);
 
@@ -46,6 +47,7 @@ class DrawerWraper extends React.Component {
           rightIcon={this.props.rightIcon}
         />
         {this.props.children}
+        <TweetBuble message={this.props.selected !== 3} />
         <FancyBottomTab
           selected={this.props.selected}
           navigation={this._changeScreen}
@@ -55,4 +57,4 @@ class DrawerWraper extends React.Component {
   }
 }
 
-export default DrawerWraper;
+export default NavigationWraper;

@@ -2,12 +2,12 @@ import React from "react";
 import { Image, View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { width } from "../../utils";
 
-import DrawerWraper from "../../components/DrawerWraper";
+import NavigationWraper from "../../components/NavigationWraper";
 
 class Notification extends React.Component {
   render() {
     return (
-      <DrawerWraper
+      <NavigationWraper
         navigation={this.props.navigation}
         selected={2}
         rightIcon={
@@ -34,7 +34,7 @@ class Notification extends React.Component {
         <View style={styles.container}>
           <Text>{"Hi!"}</Text>
         </View>
-      </DrawerWraper>
+      </NavigationWraper>
     );
   }
 }
