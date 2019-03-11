@@ -1,14 +1,19 @@
 import React from "react";
-import { Image, View, Text, StyleSheet, TouchableOpacity } from "react-native";
-import { width } from "../../utils";
+import { Image, ScrollView, StyleSheet, TouchableOpacity } from "react-native";
+import { width, colors } from "../../utils";
 
-import DrawerWraper from "../../components/DrawerWraper";
+import NavigationWraper from "../../components/NavigationWraper";
+
+import { searchFeed } from "../../mock";
+
 import SearchBar from "./SearchBar";
+import FeaturedNew from "./FeaturedNew";
+import Trends from "./Trends";
 
 class Search extends React.Component {
   render() {
     return (
-      <DrawerWraper
+      <NavigationWraper
         navigation={this.props.navigation}
         selected={1}
         rightIcon={
@@ -22,10 +27,11 @@ class Search extends React.Component {
         }
         title={<SearchBar />}
       >
-        <View style={styles.container}>
-          <Text>{"Hi!"}</Text>
-        </View>
-      </DrawerWraper>
+        <ScrollView style={styles.container}>
+          <FeaturedNew data={searchFeed.main} />
+          <Trends data={searchFeed.trends} />
+        </ScrollView>
+      </NavigationWraper>
     );
   }
 }
@@ -34,7 +40,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: width,
-    backgroundColor: "#fff"
+    backgroundColor: colors.exexlight_gray
   },
   content: {
     alignItems: "center",
