@@ -39,12 +39,13 @@ Packages used:
 ## Help me Improve :)
 
 - [x] separete components used on FancyDrawer
-- [ ] limit scroll on extremes of horizontal scrollview
 - [x] add custom avatar
+- [ ] limit scroll on extremes of horizontal scrollview
 - [ ] Haptic FeedBack on Profile Button
 - [ ] touchable not activating fast on Profile page
 - [ ] fix stacking screens while navigating (swipe back bug)
 - [ ] integrate FancyDrawer to react-navigation CustomNavigators
+- [ ] Use Cards to rework search screen
 
 ## Author
 

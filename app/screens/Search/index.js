@@ -1,5 +1,11 @@
 import React from "react";
-import { Image, ScrollView, StyleSheet, TouchableOpacity } from "react-native";
+import {
+  Image,
+  ScrollView,
+  StyleSheet,
+  TouchableOpacity,
+  View
+} from "react-native";
 import { width, colors } from "../../utils";
 
 import NavigationWraper from "../../components/NavigationWraper";
@@ -29,6 +35,14 @@ class Search extends React.Component {
       >
         <ScrollView style={styles.container}>
           <FeaturedNew data={searchFeed.main} />
+          <View
+            style={{
+              flex: 1,
+              height: StyleSheet.hairlineWidth,
+              backgroundColor: colors.exlight_gray,
+              marginTop: 20
+            }}
+          />
           <Trends data={searchFeed.trends} />
         </ScrollView>
       </NavigationWraper>

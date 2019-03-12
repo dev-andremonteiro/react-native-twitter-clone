@@ -1,46 +1,112 @@
 import React from "react";
 
-import { View, Text, TouchableOpacity, ImageBackground } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 
 import { width, height, colors } from "../../utils";
+
+import SimpleLineIcons from "@expo/vector-icons/SimpleLineIcons";
+
+const line = StyleSheet.hairlineWidth;
 
 export default class Trends extends React.Component {
   render() {
     return (
-      <View style={{ flex: 1 }}>
-        <View>
-          <Text>{"Worldwide Trends"}</Text>
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: colors.white
+        }}
+      >
+        <View
+          style={{
+            padding: 15,
+            borderBottomColor: colors.exlight_gray,
+            borderBottomWidth: line
+          }}
+        >
+          <Text style={{ fontSize: 20, fontWeight: "600" }}>
+            {"Worldwide trends"}
+          </Text>
         </View>
         {this.props.data.map((item, index) => {
           let { title, tweets } = item;
 
           return (
-            <View style={{ flexDirection: "row" }} key={index.toString()}>
-              <View style={{ flex: 2 }}>
-                <Text>{index.toString()}</Text>
-              </View>
-              <View style={{ flex: 7 }}>
-                <Text>{title}</Text>
-                <Text>{tweets}</Text>
-              </View>
-              <View
-                style={{
-                  flex: 1
-                }}
-              >
-                <View
+            <View
+              style={{
+                flexDirection: "row",
+                paddingHorizontal: 15,
+                paddingVertical: 20,
+                borderBottomColor: colors.exlight_gray,
+                borderBottomWidth: line,
+                alignItems: "flex-start",
+                justifyContent: "space-between"
+              }}
+              key={index.toString()}
+            >
+              <View style={{ flexDirection: "row" }}>
+                <Text
                   style={{
-                    height: 10,
-                    width: 10,
-                    backgroundColor: "#c21"
+                    color: colors.dark_gray,
+                    fontSize: 20,
+                    fontWeight: "300"
                   }}
+                >
+                  {(index + 1).toString()}
+                </Text>
+                <View style={{ paddingLeft: 15 }}>
+                  <Text
+                    style={{
+                      fontWeight: "500",
+                      fontSize: 16
+                    }}
+                  >
+                    {title}
+                  </Text>
+                  <Text
+                    style={{
+                      paddingTop: 5,
+                      color: colors.dark_gray,
+                      fontWeight: "200"
+                    }}
+                  >
+                    {tweets}
+                  </Text>
+                </View>
+              </View>
+
+              <View style={{ paddingRight: 5 }}>
+                <SimpleLineIcons
+                  name={"arrow-down"}
+                  size={10}
+                  color={colors.dark_gray}
                 />
               </View>
             </View>
           );
         })}
-        <View>
-          <Text>{"Show more"}</Text>
+        <View
+          style={{
+            padding: 15,
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "space-between"
+          }}
+        >
+          <Text
+            style={{
+              color: colors.primary,
+              fontSize: 16,
+              fontWeight: "300"
+            }}
+          >
+            {"Show more"}
+          </Text>
+          <SimpleLineIcons
+            name={"arrow-right"}
+            size={10}
+            color={colors.dark_gray}
+          />
         </View>
       </View>
     );
