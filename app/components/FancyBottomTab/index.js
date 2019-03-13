@@ -68,10 +68,9 @@ class FancyBottomTab extends React.Component {
       <View
         style={{
           width: width,
-          paddingHorizontal: 40,
           flexDirection: "row",
           alignItems: "center",
-          justifyContent: "space-between",
+          justifyContent: "space-around",
           borderTopColor: "#ccc",
           borderTopWidth: StyleSheet.hairlineWidth
         }}

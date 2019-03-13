@@ -9,10 +9,10 @@ import {
 } from "react-native";
 
 import { width, colors } from "../../utils";
-import { twitterMessages } from "../../mock";
+import { homeFeed } from "../../mock";
 
 import NavigationWraper from "../../components/NavigationWraper";
-import Tweet from "./Tweet";
+import Tweet from "../../components/Tweet";
 
 class Home extends React.Component {
   render() {
@@ -42,7 +42,7 @@ class Home extends React.Component {
         }
       >
         <ScrollView style={styles.container}>
-          {twitterMessages.map((i, n) => (
+          {homeFeed.map((i, n) => (
             <TouchableHighlight key={n.toString()} activeOpacity={0.4}>
               <Tweet data={i} />
             </TouchableHighlight>

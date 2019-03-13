@@ -1,4 +1,4 @@
-export const twitterMessages = [
+export const homeFeed = [
   {
     type: "tweet",
 
@@ -124,6 +124,73 @@ export const searchFeed = {
     {
       title: "#FlyEaglesFly",
       tweets: "12,3k tweets"
+    }
+  ]
+};
+
+export const notificationFeed = {
+  all: [
+    {
+      type: "discover",
+      users: [require("../assets/avatar/user1.jpg")],
+      title: "*Rodney Diaz* liked the photo of Tammy Warren",
+      desc: "I don't have words for this! pic.twitter.com/tw1tt3rcl0n31s4w3s0m3"
+    },
+    {
+      type: "follow",
+      users: [require("../assets/avatar/user2.jpg")],
+      title: "*Jacqueline Hayes* followed you",
+      desc: null
+    },
+    {
+      type: "like",
+      users: [
+        require("../assets/avatar/user3.jpg"),
+        require("../assets/avatar/user1.jpg"),
+        require("../assets/avatar/user4.jpg"),
+        require("../assets/avatar/user2.jpg")
+      ],
+      title:
+        "*Wyatt Fleming* e *others* liked a Tweet in wich you were mentioned",
+      desc:
+        "Congrats for @DAndremonteiro for releasing Twitter Clone app! #ReactNative #Expo"
+    },
+    {
+      type: "discover",
+      users: [require("../assets/avatar/user6.jpg")],
+      title: "*Terry Davidson* liked the photo of Elon Musk",
+      desc: "That's a beautiful app indeed"
+    }
+  ],
+  mentions: [
+    {
+      type: "tweet",
+
+      user: "Rodney Diaz",
+      userName: "@rodiaz",
+      avatar: require("../assets/avatar/user1.jpg"),
+
+      time: "05/03/2019",
+      message:
+        'Sometimes I see english words that make me smile - because they are clear "transpositions" of their latin/italian counterparts',
+      comments: 0,
+      retweets: 0,
+      likes: 3
+    },
+    {
+      type: "retweet",
+      from: "Wayne Spencer",
+
+      user: "Tammy Warren",
+      userName: "@tammy201",
+      avatar: null,
+
+      time: "03/03/2019",
+      message:
+        'Aqui les dejo el link a mi charla de ayer del #ReactWeekMedelin : "Some Video" youtube.com/watch?v=WC0Wkx #react #redux #RxJS',
+      comments: 13,
+      retweets: 30,
+      likes: 20
     }
   ]
 };

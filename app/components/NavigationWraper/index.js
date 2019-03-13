@@ -45,6 +45,7 @@ class NavigationWraper extends React.Component {
           showProfile={this._handleShowDrawer}
           title={this.props.title}
           rightIcon={this.props.rightIcon}
+          style={this.props.headerStyle}
         />
         {this.props.children}
         <TweetBuble message={this.props.selected !== 3} />

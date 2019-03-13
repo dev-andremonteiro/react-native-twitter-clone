@@ -46,6 +46,7 @@ Packages used:
 - [ ] fix stacking screens while navigating (swipe back bug)
 - [ ] integrate FancyDrawer to react-navigation CustomNavigators
 - [ ] Use Cards to rework search screen
+- [ ] add Image and Video support
 
 ## Author
 

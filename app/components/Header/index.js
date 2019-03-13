@@ -29,7 +29,7 @@ class Header extends React.Component {
     }
 
     return (
-      <View style={styles.container}>
+      <View style={[styles.container, this.props.style]}>
         <TouchableOpacity
           style={[
             styles.touchableMask,

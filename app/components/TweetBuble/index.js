@@ -15,7 +15,7 @@ export default class TweetBuble extends React.Component {
         style={{
           position: "absolute",
           top: height - 148,
-          left: width - 92
+          left: width - 80
         }}
       >
         <View

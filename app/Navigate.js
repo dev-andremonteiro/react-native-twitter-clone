@@ -30,7 +30,7 @@ export default createAppContainer(
           Notification: Notification,
           Message: Message
         },
-        { initialRouteName: "Search" }
+        { initialRouteName: "Notification" }
       ),
       Drawer: createStackNavigator({
         Profile: Profile,
