@@ -4,7 +4,7 @@ import { View, Image, TouchableOpacity } from "react-native";
 
 import { width, height, colors } from "../../utils";
 
-export default class TweetBuble extends React.Component {
+export default class TweetBubble extends React.Component {
   constructor(props) {
     super(props);
   }

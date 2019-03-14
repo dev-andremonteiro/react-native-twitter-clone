@@ -6,11 +6,15 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
-  Slider
+  TouchableHighlight
 } from "react-native";
-import { width, height, colors } from "../../utils";
+
+import { notificationFeed } from "../../mock";
+import { width, colors } from "../../utils";
 
 import NavigationWraper from "../../components/NavigationWraper";
+import Tweet from "../../components/Tweet";
+import NotificationCard from "./NotificationCard";
 
 class Notification extends React.Component {
   state = { sec: 0, pos: 0 };
@@ -61,36 +65,59 @@ class Notification extends React.Component {
         >
           <View
             style={{
-              paddingVertical: 15,
               flexDirection: "row",
-              justifyContent: "space-around",
+              justifyContent: "center",
               alignItems: "center"
             }}
           >
-            <Text
-              style={[
-                {
-                  fontSize: 15,
-                  fontWeight: "500",
-                  color: colors.dark_gray
-                },
-                this.state.sec === 0 && { color: colors.primary }
-              ]}
+            <TouchableOpacity
+              style={{
+                flex: 1,
+                paddingVertical: 15,
+                alignItems: "center",
+                justifyContent: "center"
+              }}
+              onPress={() =>
+                this.scroll.scrollTo({ x: 0, y: 0, animated: true })
+              }
             >
-              {"All"}
-            </Text>
-            <Text
-              style={[
-                {
-                  fontSize: 15,
-                  fontWeight: "500",
-                  color: colors.dark_gray
-                },
-                this.state.sec === 1 && { color: colors.primary }
-              ]}
+              <Text
+                style={[
+                  {
+                    fontSize: 15,
+                    fontWeight: "500",
+                    color: colors.dark_gray
+                  },
+                  this.state.sec === 0 && { color: colors.primary }
+                ]}
+              >
+                {"All"}
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={{
+                flex: 1,
+                paddingVertical: 15,
+                alignItems: "center",
+                justifyContent: "center"
+              }}
+              onPress={() =>
+                this.scroll.scrollTo({ x: width, y: 0, animated: true })
+              }
             >
-              {"Mentions"}
-            </Text>
+              <Text
+                style={[
+                  {
+                    fontSize: 15,
+                    fontWeight: "500",
+                    color: colors.dark_gray
+                  },
+                  this.state.sec === 1 && { color: colors.primary }
+                ]}
+              >
+                {"Mentions"}
+              </Text>
+            </TouchableOpacity>
           </View>
           <View
             style={{
@@ -104,6 +131,9 @@ class Notification extends React.Component {
         </View>
 
         <ScrollView
+          ref={ref => {
+            this.scroll = ref;
+          }}
           style={styles.container}
           horizontal
           pagingEnabled
@@ -111,12 +141,32 @@ class Notification extends React.Component {
           onScroll={this.animateHeader}
           scrollEventThrottle={16}
         >
-          <View style={styles.container}>
-            <Text>{"Hi!"}</Text>
-          </View>
-          <View style={styles.container}>
-            <Text>{"Bye!"}</Text>
-          </View>
+          <ScrollView style={styles.container}>
+            {notificationFeed.all.map((item, n) => {
+              return (
+                <View key={n.toString()}>
+                  <NotificationCard data={item} />
+                </View>
+              );
+            })}
+          </ScrollView>
+          <ScrollView
+            style={[
+              styles.container,
+              {
+                borderLeftColor: "#ccc",
+                borderLeftWidth: StyleSheet.hairlineWidth
+              }
+            ]}
+          >
+            {notificationFeed.mentions.map((item, n) => {
+              return (
+                <TouchableHighlight key={n.toString()}>
+                  <Tweet data={item} />
+                </TouchableHighlight>
+              );
+            })}
+          </ScrollView>
         </ScrollView>
       </NavigationWraper>
     );
@@ -127,7 +177,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: width,
-    backgroundColor: "#eee"
+    backgroundColor: "#fff"
   },
   content: {
     alignItems: "center",

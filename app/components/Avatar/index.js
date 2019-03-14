@@ -9,11 +9,14 @@ const Avatar = function(props) {
 
     return (
       <Image
-        style={{
-          height: size,
-          width: size,
-          borderRadius: size / 2
-        }}
+        style={[
+          {
+            height: size,
+            width: size,
+            borderRadius: size / 2
+          },
+          props.style
+        ]}
         resizeMode={"contain"}
         source={props.photo}
       />
@@ -26,13 +29,16 @@ const Avatar = function(props) {
   let headSize = avatarSize;
   return (
     <View
-      style={{
-        width: avatarSize,
-        height: avatarSize,
-        borderRadius: avatarSize * 2,
-        backgroundColor: colors.exlight_gray,
-        alignItems: "center"
-      }}
+      style={[
+        {
+          width: avatarSize,
+          height: avatarSize,
+          borderRadius: avatarSize * 2,
+          backgroundColor: colors.exlight_gray,
+          alignItems: "center"
+        },
+        props.style
+      ]}
     >
       <View
         style={{

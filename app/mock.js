@@ -18,7 +18,7 @@ export const homeFeed = [
     from: "Wayne Spencer",
 
     user: "Tammy Warren",
-    userName: "@tammy201",
+    userName: "@tammy2",
     avatar: null,
 
     time: "2h",
@@ -151,7 +151,7 @@ export const notificationFeed = {
         require("../assets/avatar/user2.jpg")
       ],
       title:
-        "*Wyatt Fleming* e *others* liked a Tweet in wich you were mentioned",
+        "*Wyatt Fleming* and other 3 liked a Tweet in wich you were mentioned",
       desc:
         "Congrats for @DAndremonteiro for releasing Twitter Clone app! #ReactNative #Expo"
     },
@@ -182,7 +182,7 @@ export const notificationFeed = {
       from: "Wayne Spencer",
 
       user: "Tammy Warren",
-      userName: "@tammy201",
+      userName: "@tammy2",
       avatar: null,
 
       time: "03/03/2019",
