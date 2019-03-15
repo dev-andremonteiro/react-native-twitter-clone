@@ -17,6 +17,7 @@ export default class TweetBubble extends React.Component {
           top: height - 148,
           left: width - 80
         }}
+        onPress={this.props.onBubblePress}
       >
         <View
           style={{

@@ -78,12 +78,11 @@ export default class Tweet extends React.Component {
     return (
       <View
         style={[
+          { backgroundColor: "#FFF" },
           type
             ? {
                 paddingVertical: 10,
-                paddingHorizontal: 15,
-                borderBottomColor: colors.exlight_gray,
-                borderBottomWidth: StyleSheet.hairlineWidth
+                paddingHorizontal: 15
               }
             : { paddingBottom: 15 }
         ]}

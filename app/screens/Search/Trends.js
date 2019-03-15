@@ -24,10 +24,9 @@ export default class Trends extends React.Component {
             borderBottomWidth: line
           }}
         >
-          <Text style={{ fontSize: 20, fontWeight: "600" }}>
-            {"Worldwide trends"}
-          </Text>
+          <Text style={{ fontSize: 20, fontWeight: "600" }}>{}</Text>
         </View>
+
         {this.props.data.map((item, index) => {
           let { title, tweets } = item;
 
@@ -85,29 +84,6 @@ export default class Trends extends React.Component {
             </View>
           );
         })}
-        <View
-          style={{
-            padding: 15,
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "space-between"
-          }}
-        >
-          <Text
-            style={{
-              color: colors.primary,
-              fontSize: 16,
-              fontWeight: "300"
-            }}
-          >
-            {"Show more"}
-          </Text>
-          <SimpleLineIcons
-            name={"arrow-right"}
-            size={10}
-            color={colors.dark_gray}
-          />
-        </View>
       </View>
     );
   }

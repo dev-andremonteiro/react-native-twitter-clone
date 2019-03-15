@@ -5,8 +5,7 @@ import {
   View,
   Text,
   StyleSheet,
-  TouchableOpacity,
-  TouchableHighlight
+  TouchableOpacity
 } from "react-native";
 
 import { notificationFeed } from "../../mock";
@@ -144,9 +143,20 @@ class Notification extends React.Component {
           <ScrollView style={styles.container}>
             {notificationFeed.all.map((item, n) => {
               return (
-                <View key={n.toString()}>
+                <TouchableOpacity
+                  key={n.toString()}
+                  style={{
+                    borderColor: colors.exlight_gray,
+                    borderBottomWidth: StyleSheet.hairlineWidth
+                  }}
+                  onPress={() =>
+                    this.props.navigation.navigate("DynamicTitle", {
+                      last: "Notification"
+                    })
+                  }
+                >
                   <NotificationCard data={item} />
-                </View>
+                </TouchableOpacity>
               );
             })}
           </ScrollView>
@@ -161,9 +171,20 @@ class Notification extends React.Component {
           >
             {notificationFeed.mentions.map((item, n) => {
               return (
-                <TouchableHighlight key={n.toString()}>
+                <TouchableOpacity
+                  key={n.toString()}
+                  style={{
+                    borderColor: colors.exlight_gray,
+                    borderBottomWidth: StyleSheet.hairlineWidth
+                  }}
+                  onPress={() =>
+                    this.props.navigation.navigate("Tweet", {
+                      last: "Notification"
+                    })
+                  }
+                >
                   <Tweet data={item} />
-                </TouchableHighlight>
+                </TouchableOpacity>
               );
             })}
           </ScrollView>
@@ -177,7 +198,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: width,
-    backgroundColor: "#fff"
+    backgroundColor: colors.exexlight_gray
   },
   content: {
     alignItems: "center",

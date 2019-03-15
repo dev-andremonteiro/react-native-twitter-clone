@@ -43,7 +43,16 @@ class Home extends React.Component {
       >
         <ScrollView style={styles.container}>
           {homeFeed.map((i, n) => (
-            <TouchableOpacity key={n.toString()} activeOpacity={0.4}>
+            <TouchableOpacity
+              key={n.toString()}
+              style={{
+                borderColor: colors.exlight_gray,
+                borderBottomWidth: StyleSheet.hairlineWidth
+              }}
+              onPress={() =>
+                this.props.navigation.navigate("Tweet", { last: "Home" })
+              }
+            >
               <Tweet data={i} />
             </TouchableOpacity>
           ))}
@@ -57,7 +66,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: width,
-    backgroundColor: colors.white
+    backgroundColor: colors.exexlight_gray
   }
 });
 

@@ -65,8 +65,6 @@ class NotificationCard extends React.Component {
           flexDirection: "row",
           paddingHorizontal: 15,
           paddingVertical: 20,
-          borderBottomColor: colors.exlight_gray,
-          borderBottomWidth: StyleSheet.hairlineWidth,
           alignItems: "flex-start",
           justifyContent: "space-between",
           backgroundColor: colors.white
@@ -125,7 +123,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: width,
-    backgroundColor: colors.exexlight_gray
+    backgroundColor: "#FFF"
   },
   content: {
     alignItems: "center",

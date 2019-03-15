@@ -1,8 +1,18 @@
 import React from "react";
-import { Image, View, Text, StyleSheet, TouchableOpacity } from "react-native";
-import { width } from "../../utils";
+import {
+  Image,
+  View,
+  ScrollView,
+  Text,
+  StyleSheet,
+  TouchableOpacity
+} from "react-native";
+import { width, colors } from "../../utils";
+
+import { messageFeed } from "../../mock";
 
 import NavigationWraper from "../../components/NavigationWraper";
+import MessageCard from "./MessageCard";
 
 class Message extends React.Component {
   render() {
@@ -23,9 +33,24 @@ class Message extends React.Component {
           </Text>
         }
       >
-        <View style={styles.container}>
-          <Text>{"Hi!"}</Text>
-        </View>
+        <ScrollView style={styles.container}>
+          {messageFeed.map((i, n) => (
+            <TouchableOpacity
+              key={n.toString()}
+              style={{
+                borderColor: colors.exlight_gray,
+                borderBottomWidth: StyleSheet.hairlineWidth
+              }}
+              onPress={() =>
+                this.props.navigation.navigate("DynamicTitle", {
+                  last: "Message"
+                })
+              }
+            >
+              <MessageCard data={i} />
+            </TouchableOpacity>
+          ))}
+        </ScrollView>
       </NavigationWraper>
     );
   }
@@ -35,7 +60,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: width,
-    backgroundColor: "#fff"
+    backgroundColor: colors.exexlight_gray
   },
   content: {
     alignItems: "center",

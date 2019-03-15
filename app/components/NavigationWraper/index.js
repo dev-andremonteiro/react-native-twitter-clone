@@ -10,7 +10,10 @@ class NavigationWraper extends React.Component {
   _handleShowDrawer = () => this.drawer._showProfile(0);
   _handleHeaderFade = i => this.header._fadeAvatar(i);
 
-  _changeScreen = screen => this.props.navigation.navigate(screen);
+  _changeScreen = screen =>
+    this.props.navigation.navigate(screen, {
+      last: this.props.navigation.state.routeName
+    });
 
   render() {
     return (
@@ -48,7 +51,14 @@ class NavigationWraper extends React.Component {
           style={this.props.headerStyle}
         />
         {this.props.children}
-        <TweetBubble message={this.props.selected !== 3} />
+        <TweetBubble
+          message={this.props.selected !== 3}
+          onBubblePress={
+            this.props.selected !== 3
+              ? this._changeScreen.bind(this, "New Tweet")
+              : this._changeScreen.bind(this, "New Message")
+          }
+        />
         <FancyBottomTab
           selected={this.props.selected}
           navigation={this._changeScreen}

@@ -53,7 +53,7 @@ export const drawerOptionList = [
   },
   {
     text: "Help Center",
-    nav: "Help"
+    nav: "Help Center"
   }
 ];
 

@@ -110,6 +110,9 @@ export const searchFeed = {
   },
   trends: [
     {
+      title: "Worldwide trends"
+    },
+    {
       title: "Twitter Clone App",
       tweets: "1,3M tweets"
     },
@@ -124,7 +127,8 @@ export const searchFeed = {
     {
       title: "#FlyEaglesFly",
       tweets: "12,3k tweets"
-    }
+    },
+    { title: "Show more" }
   ]
 };
 
@@ -194,3 +198,38 @@ export const notificationFeed = {
     }
   ]
 };
+
+export const messageFeed = [
+  {
+    user: "Rodney Diaz",
+    userName: "@rodiaz",
+    avatar: require("../assets/avatar/user1.jpg"),
+
+    time: "1m",
+    message: "You: Check out my project!"
+  },
+  {
+    user: "Terry Davidson",
+    userName: "@davidson",
+    avatar: require("../assets/avatar/user6.jpg"),
+
+    time: "2m",
+    message: "Realy Nice project man, congrats."
+  },
+  {
+    user: "Craig Griffin",
+    userName: "@cgriffin",
+    avatar: require("../assets/avatar/user4.jpg"),
+
+    time: "1d",
+    message: "Hey, I saw your twitter clone, very nice!"
+  },
+  {
+    user: "Wyatt Fleming",
+    userName: "@attFleming",
+    avatar: require("../assets/avatar/user3.jpg"),
+
+    time: "3d",
+    message: "You: Thank you !"
+  }
+];

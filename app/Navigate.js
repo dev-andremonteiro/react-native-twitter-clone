@@ -13,36 +13,37 @@ import Search from "./screens/Search";
 import Notification from "./screens/Notification";
 import Message from "./screens/Message";
 
-import Profile from "./screens/Profile";
-import Popular from "./screens/Popular";
-import Saved from "./screens/Saved";
-import Discover from "./screens/Discover";
-import Configuration from "./screens/Configuration";
-import Help from "./screens/Help";
+import UnderConstruction from "./screens/UnderConstruction";
 
 export default createAppContainer(
   createSwitchNavigator(
     {
-      Normal: createSwitchNavigator(
+      Main: createSwitchNavigator(
         {
           Home: Home,
           Search: Search,
           Notification: Notification,
           Message: Message
         },
-        { initialRouteName: "Notification" }
+        { initialRouteName: "Home" }
       ),
       Drawer: createStackNavigator({
-        Profile: Profile,
-        Popular: Popular,
-        Saved: Saved,
-        Discover: Discover,
-        Configuration: Configuration,
-        Help: Help
+        Profile: UnderConstruction,
+        Popular: UnderConstruction,
+        Saved: UnderConstruction,
+        Discover: UnderConstruction,
+        Configuration: UnderConstruction,
+        "Help Center": UnderConstruction
+      }),
+      Details: createStackNavigator({
+        Tweet: UnderConstruction,
+        "New Tweet": UnderConstruction,
+        "New Message": UnderConstruction,
+        DynamicTitle: UnderConstruction
       })
     },
     {
-      initialRouteName: "Normal",
+      initialRouteName: "Main",
       headerMode: "none",
       cardStyle: { paddingTop: StatusBar.currentHeight }
     }

@@ -13,7 +13,7 @@ export default class FeaturedNew extends React.Component {
     let { title, topic, time, image } = this.props.data;
 
     return (
-      <TouchableOpacity style={{ width: width, height: 200 }}>
+      <TouchableOpacity style={{ width: width, height: 200 }} onPress={this.props.onPress}>
         <ImageBackground
           source={image}
           resizeMode={"cover"}
