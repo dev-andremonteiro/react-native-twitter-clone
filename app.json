@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Fancy Drawer",
-    "slug": "fancy-drawer",
+    "name": "Twitter App 2019",
+    "slug": "twitter-app-2019",
     "privacy": "public",
     "sdkVersion": "32.0.0",
     "platforms": [
@@ -25,7 +25,7 @@
     "ios": {
       "supportsTablet": true
     },
-    "description": "A simple drawer inspired on twitter app ",
-    "githubUrl": "https://github.com/dev-andremonteiro/react-native-fancy-drawer"
+    "description": "A Twitter clone of the app as of 2019.",
+    "githubUrl": "https://github.com/dev-andremonteiro/react-native-twitter-clone"
   }
 }
