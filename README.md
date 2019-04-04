@@ -1,14 +1,23 @@
+<p align="center" >
+    <img src="https://user-images.githubusercontent.com/19479358/55591542-c26db980-5703-11e9-9434-f45a6c05eb8c.png" width="800"/>
+<p align="center">
+ <img src="https://thumbs.gfycat.com/HandmadeFrightenedEgg-size_restricted.gif" width="200"/>
+    <img src="https://thumbs.gfycat.com/DeliriousPastelBoar-size_restricted.gif" width="200"/>
+    <img src="https://thumbs.gfycat.com/GrotesqueWideBat-size_restricted.gif" width="200"/>
+  </p>
 <p align="center">
 <a title='License' href="https://github.com/FaridSafi/react-native-gifted-chat/blob/master/LICENSE" height="18">
     <img src='https://img.shields.io/badge/license-MIT-blue.svg' />
 </a>
   </p>
+  <p align="center">
+ <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=expo.io/@menorme/twitter-app-2019">
+  </p>
+
 
 # Twitter Clone App
 
 Twitter app built with [React Native](https://github.com/facebook/react-native) and [Expo](https://github.com/expo/expo).
-
-## Features
 
 ## Details
 
