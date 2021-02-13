@@ -3,7 +3,6 @@
     "name": "Twitter App 2019",
     "slug": "twitter-app-2019",
     "privacy": "public",
-    "sdkVersion": "32.0.0",
     "platforms": [
       "ios",
       "android"
